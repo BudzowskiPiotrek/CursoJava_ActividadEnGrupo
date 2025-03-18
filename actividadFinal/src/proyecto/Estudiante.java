@@ -2,27 +2,52 @@ package proyecto;
 
 import java.util.HashMap;
 import java.util.Iterator;
-
 import java.util.Map;
 
-public class Estudiante extends Persona {
-	private Map<Asignatura, EstadoAsignatura> asignatura;
+/**
+ * Clase que representa a un estudiante, extendiendo la clase Personal.
+ *  @author [Piotrek Budzowski]
+ */
+public class Estudiante extends Personal {
+	/** Mapa que almacena las asignaturas del estudiante y su estado. */
+	private Map<Asignatura, EstadoAsignatura> asignaturas;
 
+	/**
+	 * Constructor para crear un objeto Estudiante.
+	 *
+	 * @param nombre Nombre del estudiante.
+	 */
 	public Estudiante(String nombre) {
 		super(nombre);
-		this.asignatura = new HashMap<>();
+		this.asignaturas = new HashMap<>();
 	}
 
+	/**
+	 * Obtiene el mapa de asignaturas del estudiante.
+	 *
+	 * @return El mapa de asignaturas del estudiante.
+	 */
 	public Map<Asignatura, EstadoAsignatura> getAsignatura() {
-		return asignatura;
+		return asignaturas;
 	}
 
+	/**
+	 * Establece el mapa de asignaturas del estudiante.
+	 *
+	 * @param asignatura El nuevo mapa de asignaturas del estudiante.
+	 */
 	public void setAsignatura(Map<Asignatura, EstadoAsignatura> asignatura) {
-		this.asignatura = asignatura;
+		this.asignaturas = asignatura;
 	}
 
+	/**
+	 * Elimina una asignatura del estudiante por su nombre.
+	 *
+	 * @param nombre El nombre de la asignatura a eliminar.
+	 * @return true si la asignatura se eliminó con éxito, false si no se encontró.
+	 */
 	public boolean borrarAsignatura(String nombre) {
-		Iterator<Map.Entry<Asignatura, EstadoAsignatura>> iterator = asignatura.entrySet().iterator();
+		Iterator<Map.Entry<Asignatura, EstadoAsignatura>> iterator = asignaturas.entrySet().iterator();
 		while (iterator.hasNext()) {
 			Map.Entry<Asignatura, EstadoAsignatura> entry = iterator.next();
 			if (entry.getKey().getNombre().equalsIgnoreCase(nombre)) {
@@ -33,12 +58,15 @@ public class Estudiante extends Persona {
 		return false;
 	}
 
+	/**
+	 * Muestra la información del estudiante y sus asignaturas.
+	 */
 	public void mostrarAsignaturas() {
-		if (!asignatura.isEmpty()) {
+		if (!asignaturas.isEmpty()) {
 			System.out.println("************");
 			System.out.println("Nombre: " + nombre);
 			System.out.println("Asignaturas");
-			for (Map.Entry<Asignatura, EstadoAsignatura> entry : asignatura.entrySet()) {
+			for (Map.Entry<Asignatura, EstadoAsignatura> entry : asignaturas.entrySet()) {
 				System.out.println(entry.getKey() + " - Estado Actual: " + entry.getValue());
 			}
 		}
