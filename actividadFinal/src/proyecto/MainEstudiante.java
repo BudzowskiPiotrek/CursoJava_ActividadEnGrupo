@@ -123,7 +123,7 @@ public class MainEstudiante {
 			if (persona instanceof Estudiante && persona.getNombre().equalsIgnoreCase(nombre)) {
 				Estudiante estudiante = (Estudiante) persona;
 				System.out.println("Dime el nombre de la asignatura a eliminar:");
-				String asignaturaNombre = letra.nextLine();
+				String asignaturaNombre = letra.nextLine().toLowerCase();
 				boolean exito = estudiante.borrarAsignatura(asignaturaNombre);
 
 				if (exito) {
@@ -152,7 +152,7 @@ public class MainEstudiante {
 			if (persona instanceof Estudiante && persona.getNombre().equalsIgnoreCase(nombre)) {
 				Estudiante estudiante = (Estudiante) persona;
 				System.out.print("Dime el nombre de la asignatura a añadir: ");
-				String asignaturaNombre = letra.nextLine();
+				String asignaturaNombre = letra.nextLine().toLowerCase();
 				System.out.print("Dime el nombre del profesor: ");
 				String nombreProfesor = letra.nextLine();
 				System.out
