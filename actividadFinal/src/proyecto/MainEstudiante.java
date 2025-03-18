@@ -16,10 +16,9 @@ public class MainEstudiante {
 		int opcionMenu = 0;
 		String nombre;
 		while (opcionMenu != 5) {
-			System.out
-					.println("1.Añadir estudiante y su calificacion \n2.Añadir Signaturas. "
-							+ "\nEliminar un estudiante. \n4.Mostrar todos los estudiantes y sus calificaciones. "
-							+ " \n5.Eliminar asignaturas \n6.Salir.");
+			System.out.println("1. Añadir estudiante o personal. \n2. Añadir asignaturas. "
+					+ "\n3. Eliminar estudiante o personal. \n4.Mostrar información. "
+					+ " \n5. Eliminar asignaturas. \n6.Salir.");
 			opcionMenu = numero.nextInt();
 
 			switch (opcionMenu) {
@@ -61,6 +60,28 @@ public class MainEstudiante {
 
 	private static void borrarSignatura(String nombre) {
 		Iterator<Persona> iterator = persona.iterator();
+		while (iterator.hasNext()) {
+			Persona persona = iterator.next();
+			if (persona instanceof Estudiante && persona.getNombre().equalsIgnoreCase(nombre)) {
+				Estudiante estudiante = (Estudiante) persona;
+				System.out.println("Dime el nombre de la asignatura a eliminar:");
+				String asignaturaNombre = letra.nextLine();
+
+				boolean exito = estudiante.borrarAsignatura(asignaturaNombre);
+				if (exito) {
+					System.out.println("Asignatura borrada con éxito.");
+				} else {
+					System.out.println("No se encontró la asignatura.");
+				}
+				return;
+			}
+		}
+		System.out.println("Estudiante no encontrado");
+
+	}
+
+	private static void anadirSignatura(String nombre) {
+		Iterator<Persona> iterator = persona.iterator();
 		iterator = persona.iterator();
 		while (iterator.hasNext()) {
 			Persona persona = iterator.next();
@@ -86,39 +107,6 @@ public class MainEstudiante {
 			}
 		}
 		System.out.println("Estudiante no encontrado");
-		
-
-	}
-
-	private static void anadirSignatura(String nombre) {
-		Iterator<Persona> iterator = persona.iterator();
-		while (iterator.hasNext()) {
-			Persona persona = iterator.next();
-			if (persona instanceof Estudiante && persona.getNombre().equalsIgnoreCase(nombre)) {
-				Estudiante estudiante = (Estudiante) persona;
-				System.out.println("Dime el nombre de la asignatura a eliminar:");
-				String asignaturaNombre = letra.nextLine();
-
-				boolean exito = estudiante.borrarAsignatura(asignaturaNombre);
-				if (exito) {
-					System.out.println("Asignatura borrada con éxito.");
-				} else {
-					System.out.println("No se encontró la asignatura.");
-				}
-				return;
-			}
-		}
-		System.out.println("Estudiante no encontrado");
-		
-	}
-
-	private static void actualizarNota() {
-		System.out.println("Dime el nombre del estudiante al que le quieres cambiar la nota:");
-		String nombre = letra.nextLine().toUpperCase();
-
-		System.out.println("Dime la nota nueva");
-		int nueva = numero.nextInt();
-
 	}
 
 	public static void agregarPersona() {
