@@ -161,7 +161,7 @@ public class MainEstudiante {
 				try {
 					EstadoAsignatura nuevoEstado = EstadoAsignatura.valueOf(estado.toUpperCase());
 					Asignatura nuevaAsignatura = new Asignatura(asignaturaNombre, nombreProfesor, 0);
-					estudiante.getAsignatura().put(nuevaAsignatura, nuevoEstado);
+					estudiante.anadirSignatura(nuevaAsignatura, nuevoEstado);
 					System.out.println("Asignatura añadida con éxito.");
 				} catch (IllegalArgumentException e) {
 					System.out.println(
@@ -172,12 +172,12 @@ public class MainEstudiante {
 		}
 		System.out.println("Estudiante no encontrado");
 	}
-	
+
 	/**
-     * Muestra la información de todos los estudiantes y personal en la lista.
-     *
-     * @author [María Fernanda]
-     */
+	 * Muestra la información de todos los estudiantes y personal en la lista.
+	 *
+	 * @author [María Fernanda]
+	 */
 	public static void mostrarInformacion() {
 		if (personas.isEmpty()) {
 			System.out.println("No hay personas registradas.");
@@ -208,12 +208,12 @@ public class MainEstudiante {
 			System.out.println("----------------------");
 		}
 	}
-	
+
 	/**
-     * Elimina un estudiante o personal de la lista.
-     *
-     * @author [Piotrek Budzowski]
-     */
+	 * Elimina un estudiante o personal de la lista.
+	 *
+	 * @author [Piotrek Budzowski]
+	 */
 	public static void eliminarEstudiante() {
 		System.out.println("Introduce el nombre del estudiante");
 		String nombre = letra.nextLine().toUpperCase();
