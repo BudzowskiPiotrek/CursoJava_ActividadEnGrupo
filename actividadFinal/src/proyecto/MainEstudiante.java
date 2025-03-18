@@ -16,9 +16,8 @@ public class MainEstudiante {
 		int opcionMenu = 0;
 		while (opcionMenu != 5) {
 			System.out
-					.println("1.Añadir estudiante y su calificacion / 2. Actualizar la calificación de un estudiante. /"
-							+ "Eliminar un estudiante. / 4. Mostrar todos los estudiantes y sus calificaciones. "
-							+ " / 5. Salir.");
+					.println("1. Añadir estudiante o personal / 2. Añadir y/o eliminar asignaturas a estudiantes. / 3. "
+							+ "Eliminar un estudiante o personal. / 4. Mostrar información. " + " / 5. Salir.");
 			opcionMenu = numero.nextInt();
 
 			switch (opcionMenu) {
