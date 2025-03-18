@@ -18,14 +18,25 @@ public class Estudiante extends Persona {
 		this.asignatura = asignatura;
 	}
 
-	public boolean borrarAsignatura() {
+	public boolean borrarAsignatura(String nombre) {
 		boolean exito = false;
+		if (asignatura.containsKey(nombre)) {
+			asignatura.remove(nombre);
+			exito = true;
+		}
 		return exito;
 	}
 
-	public boolean mostrarAsignaturas() {
-		boolean exito = false;
-		return exito;
+	public void mostrarAsignaturas() {
+		if (!asignatura.isEmpty()) {
+			System.out.println("************");
+			System.out.println("Nombre: " + nombre);
+			System.out.println("Asignaturas");
+			for (Map.Entry<Asignatura, EstadoAsignatura> entry : asignatura.entrySet()) {
+				System.out.println(entry.getKey() + " - Estado Actual: " + entry.getValue());
+			}
+		}
+
 	}
 
 }
