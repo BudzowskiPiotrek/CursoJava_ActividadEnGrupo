@@ -18,7 +18,7 @@ public class Estudiante extends Persona {
 		this.asignatura = asignatura;
 	}
 
-	public boolean borrarAsignatura() {
+	public boolean borrarAsignatura(String nombre) {
 		boolean exito = false;
 		return exito;
 	}
