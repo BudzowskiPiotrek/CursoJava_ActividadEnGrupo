@@ -1,73 +1,75 @@
 ## Actividad Final 
 
-● Actividad 
+Actividad 
 
 Desarrollar un sistema para gestionar información de personal y estudiantes, 
 utilizando herencia, colecciones y control de tipos de objetos. 
 
 ## Clase Personal: 
 
-○ Atributos: nombre: String que representa el nombre del personal. 
+- Atributos: nombre: String que representa el nombre del personal. 
 
-○ Métodos: 
+- Métodos: 
 
-○ Constructor para inicializar el nombre. 
+- Constructor para inicializar el nombre. 
 
-○ toString(): Método que devuelve la información del personal (nombre y 
+- toString(): Método que devuelve la información del personal (nombre y 
 mención de que es personal interno). 
 
-● Clase Estudiante, que hereda de Personal: 
+## Clase Estudiante, que hereda de Personal: 
 
-○ Atributos: asignaturas: Map<Asignatura, EstadoAsignatura> donde la clave la 
+- Atributos: asignaturas: Map<Asignatura, EstadoAsignatura> donde la clave la 
 asignatura en si misma y el valor es un enum EstadoAsignatura 
 (SUPERADO, CURSADO, ABANDONADO). 
 
-○ Métodos: 
+- Métodos: 
 
-○ Constructor para inicializar el nombre y el mapa de asignaturas. 
+- Constructor para inicializar el nombre y el mapa de asignaturas. 
 
-○ anadirAsignatura(Asignatura A, EstadoAsignatura estado): Método para 
+- anadirAsignatura(Asignatura A, EstadoAsignatura estado): Método para 
 añadir una asignatura al mapa. 
 
-○ borrarAsignatura 
+- borrarAsignatura 
 
-○ mostrarAsignaturas 
+- mostrarAsignaturas 
 
-○ No tendremos toString en esta clase. 
-Clase Asignatura: 
+- No tendremos toString en esta clase. 
 
-● Atributos: nombre: String que representa el nombre de la asignatura, profesor: String 
+## Clase Asignatura: 
+
+- Atributos: nombre: String que representa el nombre de la asignatura, profesor: String 
 que representa el nombre del profesor de la asignatura, creditos: int que representa 
 los créditos de la asignatura. 
 
-● Métodos: 
+- Métodos: 
 
-● Constructor para inicializar todos los atributos. 
+- Constructor para inicializar todos los atributos. 
 
-● toString(): Método que devuelve una representación string de la asignatura, 
+- toString(): Método que devuelve una representación string de la asignatura, 
 incluyendo todos sus atributos. 
-Enum EstadoAsignatura: 
 
-● Valores: SUPERADO, CURSADO, ABANDONADO 
+## Enum EstadoAsignatura: 
+
+- Valores: SUPERADO, CURSADO, ABANDONADO 
 
 ## Funcionalidades del Sistema 
 
 Utilizar un ArrayList<Personal> para almacenar tanto objetos Personal como Estudiante. Y 
 un menú que permitirá: 
 
-● Añadir Personas: Permitir al usuario añadir objetos Personal o Estudiante a la 
+- Añadir Personas: Permitir al usuario añadir objetos Personal o Estudiante a la 
 colección. 
 
-● Eliminar Personas: Permitir al usuario eliminar personas por nombre. 
+- Eliminar Personas: Permitir al usuario eliminar personas por nombre. 
 
-● Añadir y eliminar asignaturas pero solo a los estudiantes. 
+- Añadir y eliminar asignaturas pero solo a los estudiantes. 
 
-● Mostrar Informacion: Si el objeto es de tipo Personal, mostrar solo el nombre y que 
+- Mostrar Informacion: Si el objeto es de tipo Personal, mostrar solo el nombre y que 
 es personal interno. Si el objeto es de tipo Estudiante, mostrar el nombre y los 
 detalles de todas las asignaturas registradas, incluyendo el nombre, créditos y 
 profesor. 
 
-● Utilizar el operador instanceof para determinar si el objeto es Personal o Estudiante 
+- Utilizar el operador instanceof para determinar si el objeto es Personal o Estudiante 
 antes de imprimir su información. 
 
 El trabajo se realizará por parejas y se evaluará en clase el día 26, se deberá de presentar 
