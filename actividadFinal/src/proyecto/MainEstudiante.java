@@ -51,12 +51,25 @@ public class MainEstudiante {
 	public static void agregarPersona() {
 
 		System.out.println("¿Qué quieres agregar?: 1. Estudiante / 2. Persona");
-		int nueva = numero.nextInt();
+		int opcion = numero.nextInt();
 
-		if (nueva == 1) {
+		if (opcion == 1) {
 			System.out.println("Dime el nombre del estudiante que quieres añadir: ");
 			String nombre = letra.nextLine().toUpperCase();
 
+			Persona estudiante = new Estudiante(nombre, null);
+
+			persona.add(estudiante);
+
+		} else if (opcion == 2) {
+			System.out.println("Dime el nombre de la persona que quieres añadir: ");
+			String nombre = letra.nextLine().toUpperCase();
+
+			Persona personal = new Persona(nombre);
+			persona.add(personal);
+
+		} else {
+			System.out.println("Número no válido.");
 		}
 
 	}
