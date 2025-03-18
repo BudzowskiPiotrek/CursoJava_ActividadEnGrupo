@@ -6,7 +6,8 @@ import java.util.Map;
 
 /**
  * Clase que representa a un estudiante, extendiendo la clase Personal.
- *  @author [Piotrek Budzowski]
+ * 
+ * @author [Piotrek Budzowski]
  */
 public class Estudiante extends Personal {
 	/** Mapa que almacena las asignaturas del estudiante y su estado. */
@@ -38,6 +39,16 @@ public class Estudiante extends Personal {
 	 */
 	public void setAsignatura(Map<Asignatura, EstadoAsignatura> asignatura) {
 		this.asignaturas = asignatura;
+	}
+
+	/**
+	 * Añade una asignatura al estudiante con el estado especificado.
+	 *
+	 * @param asignatura La asignatura que se va a añadir.
+	 * @param estado     El estado de la asignatura (SUPERADO, CURSADO, ABANDONADO).
+	 */
+	public void anadirSignatura(Asignatura asignatura, EstadoAsignatura estado) {
+		asignaturas.put(asignatura, estado);
 	}
 
 	/**
