@@ -49,34 +49,25 @@ public class MainEstudiante {
 	}
 
 	public static void agregarPersona() {
-		
 
 		System.out.println("¿Qué quieres agregar?: 1. Estudiante / 2. Persona");
 		int nueva = numero.nextInt();
 
 		if (nueva == 1) {
 			System.out.println("Dime el nombre del estudiante que quieres añadir: ");
-		String nombre = letra.nextLine().toUpperCase();
-		
-		
-		
+			String nombre = letra.nextLine().toUpperCase();
+
 		}
-		
+
 	}
 
 	public static void eliminarEstudiante() {
 		System.out.println("Introduce el nombre del estudiante");
 		String nombre = letra.nextLine().toUpperCase();
 
-		int nota = EstudianteMap.remove(nombre);
-		System.out.println("Se ha eliminado el estudiante: " + nombre + ", que tenía un: " + nota);
-
 	}
 
 	public static void mostrarEstudiantes() {
-		for (Map.Entry<String, Integer> entrada : EstudianteMap.entrySet()) {
-			System.out.println(entrada.getKey() + ": " + entrada.getValue());
-		}
-	}
 
+	}
 }
