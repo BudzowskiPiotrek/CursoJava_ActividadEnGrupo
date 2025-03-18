@@ -1,5 +1,6 @@
 package proyecto;
 
+import java.util.Iterator;
 import java.util.Map;
 
 public class Estudiante extends Persona {
@@ -19,12 +20,15 @@ public class Estudiante extends Persona {
 	}
 
 	public boolean borrarAsignatura(String nombre) {
-		boolean exito = false;
-		if (asignatura.containsKey(nombre)) {
-			asignatura.remove(nombre);
-			exito = true;
+		Iterator<Map.Entry<Asignatura, EstadoAsignatura>> iterator = asignatura.entrySet().iterator();
+		while (iterator.hasNext()) {
+			Map.Entry<Asignatura, EstadoAsignatura> entry = iterator.next();
+			if (entry.getKey().getNombre().equalsIgnoreCase(nombre)) {
+				iterator.remove();
+				return true;
+			}
 		}
-		return exito;
+		return false;
 	}
 
 	public void mostrarAsignaturas() {
