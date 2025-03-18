@@ -90,6 +90,4 @@ siguiente forma:
 * @param numero2 segundo sumando 
 * @return La suma de los dos números 
 */ 
-public int suma(int numero1, int numero2) { 
-return numero1+numero2;  
-} 
+
