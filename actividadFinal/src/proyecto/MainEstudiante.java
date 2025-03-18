@@ -118,7 +118,7 @@ public class MainEstudiante {
 			System.out.println("Dime el nombre del estudiante que quieres añadir: ");
 			String nombre = letra.nextLine().toUpperCase();
 
-			Persona estudiante = new Estudiante(nombre, null);
+			Persona estudiante = new Estudiante(nombre);
 
 			persona.add(estudiante);
 
