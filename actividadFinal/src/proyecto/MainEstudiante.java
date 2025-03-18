@@ -16,9 +16,9 @@ public class MainEstudiante {
 		int opcionMenu = 0;
 		while (opcionMenu != 5) {
 			System.out
-					.println("1.Añadir estudiante y su calificacion / 2. Actualizar la calificación de un estudiante. /"
-							+ "Eliminar un estudiante. / 4. Mostrar todos los estudiantes y sus calificaciones. "
-							+ " / 5. Salir.");
+					.println("1.Añadir estudiante y su calificacion \n2. Actualizar la calificación de un estudiante. "
+							+ "\nEliminar un estudiante. \n4. Mostrar todos los estudiantes y sus calificaciones. "
+							+ " \n6.Añadir o Eliminar asignaturas \n5. Salir.");
 			opcionMenu = numero.nextInt();
 
 			switch (opcionMenu) {
@@ -35,9 +35,76 @@ public class MainEstudiante {
 				mostrarInformacion();
 				break;
 			case 5:
+				anadirEliminarSignaturas();
+				break;
+			case 6:
 				System.out.println("Adiós!");
 				break;
 			}
+		}
+	}
+
+	private static void anadirEliminarSignaturas() {
+		System.out.println("Pulsa 1. Para quitar asignatura\nPulsa 2. Para añadir la asignatura");
+		int opcion = numero.nextInt();
+		System.out.println("Lista de Nombres de los Estudiantes:");
+		for (Persona p : persona) {
+			if (p instanceof Estudiante) {
+				System.out.println(p.toString()); 
+			}
+		}
+		System.out.println("Dime el nombre del Estudiante");
+		String nombre = letra.nextLine();
+
+		switch (opcion) {
+		case 1: 
+			Iterator<Persona> iterator = persona.iterator();
+			while (iterator.hasNext()) {
+				Persona persona = iterator.next();
+				if (persona instanceof Estudiante && persona.getNombre().equalsIgnoreCase(nombre)) {
+					Estudiante estudiante = (Estudiante) persona;
+					System.out.println("Dime el nombre de la asignatura a eliminar:");
+					String asignaturaNombre = letra.nextLine(); 
+
+					boolean exito = estudiante.borrarAsignatura(asignaturaNombre); 
+					if (exito) {
+						System.out.println("Asignatura borrada con éxito.");
+					} else {
+						System.out.println("No se encontró la asignatura.");
+					}
+					return;
+				}
+			}
+			System.out.println("Estudiante no encontrado.");
+			break;
+
+		case 2:
+			iterator = persona.iterator();
+			while (iterator.hasNext()) {
+				Persona persona = iterator.next();
+				if (persona instanceof Estudiante && persona.getNombre().equalsIgnoreCase(nombre)) {
+					Estudiante estudiante = (Estudiante) persona;
+					System.out.println("Dime el nombre de la asignatura a añadir:");
+					String asignaturaNombre = letra.nextLine(); 
+					System.out.println(
+							"Dime el estado de la asignatura (por ejemplo, 'SUPERADO', 'CURSADO', 'ABANDONADO'):");
+					String estado = letra.nextLine(); 
+
+					try {
+						EstadoAsignatura nuevoEstado = EstadoAsignatura.valueOf(estado.toUpperCase()); 
+						Asignatura nuevaAsignatura = new Asignatura(asignaturaNombre, estado, 0);
+						estudiante.getAsignatura().put(nuevaAsignatura, nuevoEstado);
+
+						System.out.println("Asignatura añadida con éxito.");
+					} catch (IllegalArgumentException e) {
+						System.out.println(
+								"Estado de asignatura inválido. Asegúrate de ingresar uno de los valores: SUPERADO, CURSADO, ABANDONADO.");
+					}
+					return;
+				}
+			}
+			System.out.println("Estudiante no encontrado.");
+			break;
 		}
 	}
 
