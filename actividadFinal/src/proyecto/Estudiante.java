@@ -1,13 +1,14 @@
 package proyecto;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Estudiante extends Persona {
 	private Map<Asignatura, EstadoAsignatura> asignatura;
 
-	public Estudiante(String nombre, Map<Asignatura, EstadoAsignatura> asignatura) {
+	public Estudiante(String nombre ) {
 		super(nombre);
-		this.asignatura = asignatura;
+		this.asignatura = new HashMap<>();
 	}
 
 	public Map<Asignatura, EstadoAsignatura> getAsignatura() {
