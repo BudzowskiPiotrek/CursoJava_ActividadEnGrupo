@@ -1,6 +1,7 @@
 package proyecto;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainEstudiante {
@@ -20,7 +21,7 @@ public class MainEstudiante {
 
 			switch (opcionMenu) {
 			case 1:
-				agregarEstudiante();
+				agregarPersona();
 				break;
 			case 2:
 				actualizarNota();
@@ -45,18 +46,22 @@ public class MainEstudiante {
 		System.out.println("Dime la nota nueva");
 		int nueva = numero.nextInt();
 
-		EstudianteMap.put(nombre, nueva);
-
 	}
 
-	public static void agregarEstudiante() {
-		System.out.println("Introduce el nombre del estudiante");
+	public static void agregarPersona() {
+		
+
+		System.out.println("¿Qué quieres agregar?: 1. Estudiante / 2. Persona");
+		int nueva = numero.nextInt();
+
+		if (nueva == 1) {
+			System.out.println("Dime el nombre del estudiante que quieres añadir: ");
 		String nombre = letra.nextLine().toUpperCase();
-
-		System.out.println("Introduce la nota del estudiante");
-		Integer nota = numero.nextInt();
-
-		EstudianteMap.put(nombre, nota);
+		
+		
+		
+		}
+		
 	}
 
 	public static void eliminarEstudiante() {
