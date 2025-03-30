@@ -146,7 +146,6 @@ public class MainEstudiante {
 	 */
 	private static void anadirAsignatura(String nombre) {
 		Iterator<Personal> iterator = personas.iterator();
-		iterator = personas.iterator();
 		while (iterator.hasNext()) {
 			Personal persona = iterator.next();
 			if (persona instanceof Estudiante && persona.getNombre().equalsIgnoreCase(nombre)) {
