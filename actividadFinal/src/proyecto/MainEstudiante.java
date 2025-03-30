@@ -26,10 +26,10 @@ public class MainEstudiante {
 	public static void main(String[] args) {
 		int opcionMenu = 0;
 		String nombre;
-		while (opcionMenu != 5) {
+		while (opcionMenu != 6) {
 			System.out.println("1. Añadir estudiante o personal. \n2. Añadir asignaturas. "
-					+ "\n3. Eliminar asignaturas. \n4.Mostrar información. "
-					+ " \n5. Eliminar estudiante o personal. \n6.Salir.");
+					+ "\n3. Eliminar asignaturas. \n4. Mostrar información. "
+					+ " \n5. Eliminar estudiante o personal. \n6. Salir.");
 			opcionMenu = numero.nextInt();
 
 			switch (opcionMenu) {
@@ -38,7 +38,7 @@ public class MainEstudiante {
 				break;
 			case 2:
 				nombre = anadirEliminarBase();
-				anadirSignatura(nombre);
+				anadirAsignatura(nombre);
 				break;
 			case 3:
 				nombre = anadirEliminarBase();
@@ -64,7 +64,7 @@ public class MainEstudiante {
 	 */
 	public static void agregarPersona() {
 
-		System.out.println("¿Qué quieres agregar?: 1. Estudiante / 2. Persona");
+		System.out.println("¿Qué quieres agregar?: 1. Estudiante / 2. Personal");
 		int opcion = numero.nextInt();
 
 		if (opcion == 1) {
@@ -102,7 +102,7 @@ public class MainEstudiante {
 		System.out.println("Lista de Nombres de los Estudiantes:");
 		for (Personal p : personas) {
 			if (p instanceof Estudiante) {
-				System.out.println(p.toString());
+				System.out.println(p.getNombre());
 			}
 		}
 		System.out.println("Dime el nombre del Estudiante");
@@ -123,7 +123,7 @@ public class MainEstudiante {
 			if (persona instanceof Estudiante && persona.getNombre().equalsIgnoreCase(nombre)) {
 				Estudiante estudiante = (Estudiante) persona;
 				System.out.println("Dime el nombre de la asignatura a eliminar:");
-				String asignaturaNombre = letra.nextLine().toLowerCase();
+				String asignaturaNombre = letra.nextLine();
 				boolean exito = estudiante.borrarAsignatura(asignaturaNombre);
 
 				if (exito) {
@@ -144,7 +144,7 @@ public class MainEstudiante {
 	 * @param nombre El nombre del estudiante al que se añadirá la asignatura.
 	 * @author [Piotrek Budzowski]
 	 */
-	private static void anadirSignatura(String nombre) {
+	private static void anadirAsignatura(String nombre) {
 		Iterator<Personal> iterator = personas.iterator();
 		iterator = personas.iterator();
 		while (iterator.hasNext()) {
@@ -215,7 +215,7 @@ public class MainEstudiante {
 	 * @author [Piotrek Budzowski]
 	 */
 	public static void eliminarEstudiante() {
-		System.out.println("Introduce el nombre del estudiante");
+		System.out.println("Introduce el nombre del estudiante o del personal");
 		String nombre = letra.nextLine().toUpperCase();
 
 		Iterator<Personal> iterator = personas.iterator();
