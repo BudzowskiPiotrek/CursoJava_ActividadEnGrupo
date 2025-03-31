@@ -47,8 +47,12 @@ public class Estudiante extends Personal {
 	 * @param asignatura La asignatura que se va a añadir.
 	 * @param estado     El estado de la asignatura (SUPERADO, CURSADO, ABANDONADO).
 	 */
-	public void anadirSignatura(Asignatura asignatura, EstadoAsignatura estado) {
-		asignaturas.put(asignatura, estado);
+	public boolean anadirSignatura(Asignatura asignatura, EstadoAsignatura estado) {
+		if (!asignaturas.containsKey(asignatura)) {
+			asignaturas.put(asignatura, estado);
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -81,7 +85,5 @@ public class Estudiante extends Personal {
 				System.out.println(entry.getKey() + " - Estado Actual: " + entry.getValue());
 			}
 		}
-
 	}
-
 }
